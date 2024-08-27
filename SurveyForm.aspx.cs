@@ -324,7 +324,6 @@ namespace anketa
                 var selectedConfig = configJson["configs"].First(config => config["name"].ToString() == selectedConfigName);
                 string username = Context.User.Identity.Name;
                 Response.Write(username);
- //               username = "mi.maht1";
                 int facValue = GetFacValue(username);
                 if (facValue > 0)
                 {
