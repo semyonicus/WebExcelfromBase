@@ -282,34 +282,6 @@ namespace anketa
                 Response.End();
             }
         }
-        /*
-        private void LoadExcelDataToDatabase(string filePath)
-        {
-            Workbook workbook = new Workbook(filePath);
-            Worksheet worksheet = workbook.Worksheets[0];
-            DataTable dataTable = worksheet.Cells.ExportDataTable(0, 0, worksheet.Cells.MaxDataRow + 1, worksheet.Cells.MaxDataColumn + 1, true);
-
-            // ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString тянет из web конфига
-            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlBulkCopy bulkCopy = new SqlBulkCopy(connection);
-                bulkCopy.DestinationTableName = "AnketFiles";
-                connection.Open();
-                bulkCopy.WriteToServer(dataTable);
-                connection.Close();
-            }
-
-            // Вызов другой хранимой процедуры для дальнейшей обработки данных
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand command = new SqlCommand("ProcessAnketFiles", connection);
-                command.CommandType = System.Data.CommandType.StoredProcedure;
-                connection.Open();
-                command.ExecuteNonQuery();
-                connection.Close();
-            }
-        }*/
         private JObject configJson;
         protected void Page_Load(object sender, EventArgs e)
         {
