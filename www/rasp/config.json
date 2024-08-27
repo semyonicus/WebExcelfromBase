@@ -1,0 +1,10 @@
+{
+  "version": "1",
+  "configs": [
+    {
+      "name": "Загрузка данных расписания",
+	  "desc": "Создает 1 лист содержит данные 1 лист  Конкурсные списки ",
+      "data": "[{\"procedure\":\"publicbase.dbo.getfrommssql\",\"params\":[{\"param\":\"operation\", \"value\":\"4\",\"type\":\"int\"},{\"param\":\"parameter\", \"value\":\"2024-2025_1_%fac%\",\"type\":\"string\"}],\"sheetnum\":5},{\"procedure\":\"publicbase.dbo.getfrommssql\",\"params\":[{\"param\":\"operation\", \"value\":\"3\",\"type\":\"int\"},{\"param\":\"parameter\", \"value\":\"2024-2025\",\"type\":\"string\"}],\"sheetnum\":6},{\"procedure\":\"publicbase.dbo.getfrommssql\",\"params\":[{\"param\":\"operation\", \"value\":\"5\",\"type\":\"int\"},{\"param\":\"parameter\", \"value\":\"%fac%\",\"type\":\"string\"}],\"sheetnum\":9},{\"procedure\":\"publicbase.dbo.getfrommssql\",\"params\":[{\"param\":\"operation\", \"value\":\"6\",\"type\":\"int\"},{\"param\":\"parameter\", \"value\":\"20240801\",\"type\":\"string\"}],\"sheetnum\":10}]"
+    },
+  ]
+}
