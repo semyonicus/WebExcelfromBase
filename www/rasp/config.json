@@ -3,8 +3,9 @@
   "configs": [
     {
       "name": "Загрузка данных расписания",
-	  "desc": "Создает 1 лист содержит данные 1 лист  Конкурсные списки ",
-      "data": "[{\"procedure\":\"publicbase.dbo.getfrommssql\",\"params\":[{\"param\":\"operation\", \"value\":\"4\",\"type\":\"int\"},{\"param\":\"parameter\", \"value\":\"2024-2025_1_%fac%\",\"type\":\"string\"}],\"sheetnum\":5},{\"procedure\":\"publicbase.dbo.getfrommssql\",\"params\":[{\"param\":\"operation\", \"value\":\"3\",\"type\":\"int\"},{\"param\":\"parameter\", \"value\":\"2024-2025\",\"type\":\"string\"}],\"sheetnum\":6},{\"procedure\":\"publicbase.dbo.getfrommssql\",\"params\":[{\"param\":\"operation\", \"value\":\"5\",\"type\":\"int\"},{\"param\":\"parameter\", \"value\":\"%fac%\",\"type\":\"string\"}],\"sheetnum\":9},{\"procedure\":\"publicbase.dbo.getfrommssql\",\"params\":[{\"param\":\"operation\", \"value\":\"6\",\"type\":\"int\"},{\"param\":\"parameter\", \"value\":\"20240801\",\"type\":\"string\"}],\"sheetnum\":10}]"
+	  "desc": "Меняет 4 листа, листы по порядку  4 лист - загружает нагрузку 2024-2025 это учебный год 1 это номер семестра (осень) 2 это весна, 6 лист загружает список преподавателей всех кто добавлен на 2024-2025 год включая почасовиков, 9 лист аудитории, 10 лист изменения по умолчанию стоит 1 августа",
+	  "template":"~/www/rasp/templaterasp.xlsx",
+      "data": "[{\"procedure\":\"publicbase.dbo.getfrommssql\",\"params\":[{\"param\":\"operation\", \"value\":\"4\",\"type\":\"int\"},{\"param\":\"parameter\", \"value\":\"2024-2025_1_%fac%\",\"type\":\"string\"}],\"sheetnum\":4},{\"procedure\":\"publicbase.dbo.getfrommssql\",\"params\":[{\"param\":\"operation\", \"value\":\"3\",\"type\":\"int\"},{\"param\":\"parameter\", \"value\":\"2024-2025\",\"type\":\"string\"}],\"sheetnum\":6},{\"procedure\":\"publicbase.dbo.getfrommssql\",\"params\":[{\"param\":\"operation\", \"value\":\"5\",\"type\":\"int\"},{\"param\":\"parameter\", \"value\":\"%fac%\",\"type\":\"string\"}],\"sheetnum\":9},{\"procedure\":\"publicbase.dbo.getfrommssql\",\"params\":[{\"param\":\"operation\", \"value\":\"6\",\"type\":\"int\"},{\"param\":\"parameter\", \"value\":\"20240801\",\"type\":\"string\"}],\"sheetnum\":10}]"
     },
   ]
 }

@@ -13,6 +13,7 @@ using System.Xml.Linq;
 //using Aspose.Cells.Charts;
 using Spire.Xls;
 using Newtonsoft.Json.Linq;
+using System.Web;
 
 namespace anketa
 {
@@ -68,7 +69,16 @@ namespace anketa
             if (string.IsNullOrEmpty(username))
             {
                 Response.Write("надо зарегистрироваться от имени все зависит");
-                return;
+                Uri uri = HttpContext.Current.Request.Url;
+                string host = uri.Host;
+                // в режиме отладки продолжается выполнение
+                if (!host.Contains("localhost"))
+                {
+                    return;
+                } else
+                {
+                    username = "sam";
+                }
             }
             string jsonString = QueryArea.Text;
             if (jsonString=="нет данных")
@@ -79,21 +89,30 @@ namespace anketa
             string filename;
             Workbook workbook = new Workbook();
             string template= ListBoxConfigs.Text;
-            Response.Write($" Выбран {template}");
+            // Response.Write($" Выбран {template}");
             // в зависимости от выбора должно быть
-            filename = Server.MapPath("~/www/rasp/target.xlsx");
-
+            if (string.IsNullOrEmpty(template))
+            {
+                Response.Write("Ничего не выбрано");
+                return;
+            }
+            string templatename = TemplateName.Text;
+            if (!string.IsNullOrEmpty(templatename))
+            {
+                filename = Server.MapPath(templatename);
                 if (!File.Exists(filename))
                 {
                     Response.Write("Ошибка шаблон не найден");
                     return;
-                
+
                 }
                 else
                 {
                     workbook.LoadFromFile(filename);
                 }
-                JArray json;
+
+            }
+            JArray json;
             try
             {
                 json = JArray.Parse(jsonString);
@@ -326,6 +345,8 @@ namespace anketa
                 var selectedConfig = configJson["configs"].First(config => config["name"].ToString() == selectedConfigName);
                 string username = Context.User.Identity.Name;
                 Response.Write(username);
+                TemplateName.Text= selectedConfig["template"].ToString();
+                desc.Text= selectedConfig["desc"].ToString();
                 int facValue = GetFacValue(username);
                 if (facValue > 0)
                 {

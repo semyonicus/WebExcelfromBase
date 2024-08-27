@@ -78,10 +78,12 @@
                 OnSelectedIndexChanged="ListBoxConfigs_SelectedIndexChanged"
                 CssClass="form-control" style="width: 100%;"
                 ></asp:ListBox>
-            <asp:TextBox ID="QueryArea" runat="server" 
+            <asp:TextBox ID="TemplateName" runat="server" CssClass="form-control" style="width: 100%;"></asp:TextBox>
+                <asp:TextBox ID="QueryArea" runat="server" 
                 TextMode="MultiLine" Rows="10" Columns="50"
                 CssClass="form-control" style="width: 100%;"
                 ></asp:TextBox>
+                <asp:Label runat="server" ID="desc"></asp:Label>
             <span class="help-button" data-toggle="popover" data-content="Выгрузка данных может редактироваться прямо здесь">?</span>
             </div>
             
