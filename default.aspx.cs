@@ -258,17 +258,6 @@ namespace anketa
                 }
 
             }
-            // string resultFilePath = "result.xlsx";
-            // resultFilePath = Server.MapPath("~/www/rasp/result.xlsx");
-
-            // Сохранение изменений в файл Excel
-            //workbook.SaveToFile(resultFilePath);
-
-            // Отправка файла клиенту
-            //Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-            //Response.AppendHeader("Content-Disposition", "attachment; filename=result.xlsx");
-            //Response.TransmitFile(resultFilePath);
-            //Response.End();
             using (MemoryStream stream = new MemoryStream())
             {
                 workbook.SaveToStream(stream, FileFormat.Version2013);
