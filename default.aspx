@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SurveyForm.aspx.cs" Inherits="anketa.SurveyForm" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="anketa.SurveyForm" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 
 <!DOCTYPE html>
@@ -34,11 +34,9 @@
             margin-left: 10px;
             cursor: pointer;
             transition: background-color 0.3s;
-            position: absolute;
             right: 0;
             top: 50%;
-            transform: translateY(-50%);
-        }
+           }
         .help-button:hover {
             background-color: #0056b3;
         }
@@ -55,13 +53,6 @@
                     "hide": 100
                 }
             });
-            $('[data-toggle="popover"]').click(function () {
-
-                setTimeout(function () {
-                    $('.popover').fadeOut('slow');
-                }, 3000);
-
-            });
         });
     </script>
 </head>
@@ -72,20 +63,35 @@
             <h2 class="text-center">
                 Выгрузка данных</h2>
             <div class="form-group">
-              
-            <asp:ListBox ID="ListBoxConfigs" runat="server" 
+                <span class="help-button" data-toggle="popover" 
+                    data-content="Конфигурация представляет собой
+                    сценарии выполненные на хранимых процедурах 
+                    которые обращаются к базе данных. 
+                    В отличии от предыдущих систем здесь вы можете 
+                    менять параметры хранимых процедур, 
+                    когда все придет в окончательный вид, 
+                    параметры надеюсь будут продокументированы">?
+                </span>
+            Выберите конфигурацию <br/>
+         
+                <asp:ListBox ID="ListBoxConfigs" runat="server" 
                 AutoPostBack="true" 
                 OnSelectedIndexChanged="ListBoxConfigs_SelectedIndexChanged"
                 CssClass="form-control" style="width: 100%;"
                 ></asp:ListBox>
-            <asp:TextBox ID="TemplateName" runat="server" CssClass="form-control" style="width: 100%;"></asp:TextBox>
+       
+                <asp:TextBox ID="TemplateName" runat="server" CssClass="form-control" style="width: 100%;"></asp:TextBox>
+            <span class="help-button" 
+         data-toggle="popover" data-content="Выгрузка данных 
+         может редактироваться прямо здесь, 
+         все зависит от выбора конфигурации">?</span>
+      
                 <asp:TextBox ID="QueryArea" runat="server" 
                 TextMode="MultiLine" Rows="10" Columns="50"
                 CssClass="form-control" style="width: 100%;"
                 ></asp:TextBox>
                 <asp:Label runat="server" ID="desc"></asp:Label>
-            <span class="help-button" data-toggle="popover" data-content="Выгрузка данных может редактироваться прямо здесь">?</span>
-            </div>
+             </div>
             
             <asp:Button ID="SubmitButton" runat="server" Text="Загрузить данные" CssClass="btn btn-primary btn-block" OnClick="SubmitButton_Click" />
         
