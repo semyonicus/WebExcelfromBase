@@ -78,6 +78,8 @@ namespace anketa
             }
             string filename;
             Workbook workbook = new Workbook();
+            string template= ListBoxConfigs.Text;
+            Response.Write($" Выбран {template}");
             // в зависимости от выбора должно быть
             filename = Server.MapPath("~/www/rasp/target.xlsx");
 
