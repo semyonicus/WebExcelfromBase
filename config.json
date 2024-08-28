@@ -1,0 +1,10 @@
+{
+  "version": "1",
+  "configs": [
+    {
+      "name": "Загрузка данных для работы с группами",
+	  "desc": "1 лист список абитуриентов с группами",
+	  "template":"",
+      "data": "[{\"procedure\":\"publicbase.dbo.getfrommssql\",\"params\":[{\"param\":\"operation\", \"value\":\"7\",\"type\":\"int\"},{\"param\":\"parameter\", \"value\":\"%fac%\",\"type\":\"string\"}],\"sheetnum\":1}]"
+    }]
+}

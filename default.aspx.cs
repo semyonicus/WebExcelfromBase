@@ -21,50 +21,7 @@ namespace anketa
     {
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
-            /*
-            string currentLogin = Context.User.Identity.Name;
-            if (string.IsNullOrEmpty(currentLogin))
-            {
-                // Обработка случая, когда пользователь не авторизован
-                Response.Redirect("Login.aspx");
-                return;
-            }
-
-            var survey = new
-            {
-                Name = NameTextBox.Text,
-                Email = EmailTextBox.Text,
-                Comments = CommentsTextBox.Text
-            };
-
-            JavaScriptSerializer js = new JavaScriptSerializer();
-            string jsonData = js.Serialize(survey);
-
-            string fileName = Path.GetFileName(FileUpload.PostedFile.FileName);
-            string filePath = Server.MapPath("~/excelfiles/") + fileName;
-
-            // Сохранение файла на сервере
-            FileUpload.SaveAs(filePath);
-
-            // Загрузка данных из Excel в таблицу AnketFiles
-            LoadExcelDataToDatabase(filePath);
-
-            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-            string storedProcedure = "InsertSurveyData";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand command = new SqlCommand(storedProcedure, connection);
-                command.CommandType = System.Data.CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@SurveyData", jsonData);
-                command.Parameters.AddWithValue("@FileName", fileName);
-                command.Parameters.AddWithValue("@UserName", currentLogin);
-
-                connection.Open();
-                command.ExecuteNonQuery();
-                connection.Close();
-            }
-            */
+            
             string username = Context.User.Identity.Name;
             if (string.IsNullOrEmpty(username))
             {
@@ -274,9 +231,11 @@ namespace anketa
         private JObject configJson;
         protected void Page_Load(object sender, EventArgs e)
         {
+           
             if (!IsPostBack)
             {
-                string filePath = Server.MapPath("~/www/rasp/config.json");
+
+                string filePath = Server.MapPath("./config.json");
                 string jsonContent = File.ReadAllText(filePath);
                 configJson = JObject.Parse(jsonContent);
 
@@ -298,7 +257,7 @@ namespace anketa
 
             if (ListBoxConfigs.SelectedItem != null)
             {
-                string filePath = Server.MapPath("~/www/rasp/config.json");
+                string filePath = Server.MapPath("./config.json");
                 string jsonContent = File.ReadAllText(filePath);
                 configJson = JObject.Parse(jsonContent);
 
